@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101225"><title>Scenario Quiz — Play together</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><div class="brand"><span class="brand-mark">✦</span><div><strong>SCENARIO QUIZ</strong><small>THINK FAST. PLAY TOGETHER.</small></div></div><span class="live"><i></i> LIVE PARTY</span></header>
+    <section id="home" class="panel hero">
+      <div class="eyebrow">THE QUICK-FIRE PARTY QUIZ</div><h1>Big decisions.<br><em>Quick answers.</em></h1>
+      <p class="muted">Challenge 1–7 friends in a live quiz. Join from anywhere with a room code.</p>
+      <div class="field"><label for="name">YOUR DISPLAY NAME</label><input id="name" maxlength="18" placeholder="e.g. Alex" autocomplete="nickname"></div>
+      <button id="create" class="primary">＋ Create a room</button>
+      <div class="or"><span></span> OR JOIN A GAME <span></span></div>
+      <div class="join-row"><input id="code" maxlength="6" placeholder="ENTER CODE" autocomplete="off"><button id="join" class="secondary">Join room →</button></div>
+      <p id="home-error" class="error"></p>
+      <div class="features"><span>◷ 20-second rounds</span><span>⚡ Speed scoring</span><span>♛ 8 rounds</span></div>
+    </section>
+    <section id="game" class="panel hidden">
+      <div class="game-top"><div><div class="eyebrow" id="phase-label">WAITING ROOM</div><h2 id="game-title">Your room</h2></div><div class="room-pill">ROOM <b id="room-code">------</b><button id="copy" title="Copy room code">▢</button></div></div>
+      <div id="lobby" class="hidden">
+        <p class="muted">Share this code with your friends. The host can start when at least two players have joined.</p>
+        <div id="players" class="players"></div>
+        <button id="start" class="primary wide">Start game <span>→</span></button><p id="lobby-note" class="muted center">Waiting for another player…</p>
+      </div>
+      <div id="question" class="hidden">
+        <div class="round-line"><span id="round">ROUND 1 / 8</span><span id="answered">0 / 2 ANSWERED</span></div>
+        <div class="timer-wrap"><div id="timer" class="timer">20</div><div class="timer-caption">SECONDS LEFT</div></div>
+        <h2 id="prompt" class="prompt"></h2><div id="answers" class="answers"></div><p id="answer-note" class="muted center">Choose carefully. Your answer is private until the reveal.</p>
+        <div class="score-strip" id="score-strip"></div>
+      </div>
+      <div id="results" class="hidden">
+        <div class="eyebrow">THE REVEAL</div><h2 class="prompt">Here’s how everyone did.</h2>
+        <div id="correct-answer" class="correct-box"></div><p id="explanation" class="muted"></p>
+        <div id="round-results" class="results-list"></div><p class="muted center">Next round starting shortly…</p>
+      </div>
+      <div id="gameover" class="hidden">
+        <div class="trophy">🏆</div><div class="eyebrow center">GAME COMPLETE</div><h2 class="winner" id="winner"></h2><p class="muted center">Final leaderboard</p>
+        <div id="final-results" class="results-list"></div><button id="again" class="primary wide">Play again</button>
+      </div>
+      <p id="game-error" class="error"></p>
+    </section>
+    <footer>Made for friends, wherever they are. <span>SCENARIO QUIZ © 2026</span></footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
